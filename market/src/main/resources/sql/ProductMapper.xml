@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gl.market.product.ProductDao">
+	<select id="index" resultType="com.gl.market.product.ProductVo">
+		select * from product where
+		cat='HU' or cat='FM' or cat='FO' or cat='OD'
+		order by prio
+	</select>
+	<select id="selectList" parameterType="String"
+		resultType="com.gl.market.product.ProductVo">
+		select * from product where cat=#{value} order by prio
+	</select>
+	<select id="selectAllWish" parameterType="String"
+		resultType="com.gl.market.model.UserWishVo">
+		select * from wish where customid=#{value}
+	</select>
+	<insert id="insertWish" parameterType="com.gl.market.model.UserWishVo">
+		insert into wish
+		values('wish_'||seq_wish.nextval,#{proid},#{customid})
+	</insert>
+	<delete id="deleteWish" parameterType="com.gl.market.model.UserWishVo">
+		delete from wish where proid=#{proid} and customid=#{customid}
+	</delete>
+
+
+</mapper>
