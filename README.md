@@ -25,7 +25,6 @@
  > ![mainDoc](./doc/3차프로젝트ppt.gif)  
  > [download](./doc/3차프로젝트.ppt)  
 
-[인터뷰시나리오](./doc/01.인터뷰시나리오.pdf)  
-[유스케이스](./doc/마켓페이지유스케이스.pdf)
+[유스케이스](./doc/마켓페이지유스케이스.pdf)  
 [ERD](./doc/ERD.pdf)  
 [스토리보드](./doc/08.스토리보드.pdf)  
