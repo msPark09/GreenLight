@@ -50,6 +50,7 @@ public class UserJoinCon {
 	
 	@RequestMapping("/join")
 	public String joinInsert(UserJoinVo bean){
+		System.out.println("»Æ¿Œ");
 		UserJoinDao mapper = sqlSession.getMapper(UserJoinDao.class);
 		mapper.userInsert(bean);
 		return "redirect:/";

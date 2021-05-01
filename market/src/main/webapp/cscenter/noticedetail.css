@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+ .notice{
+ text-align: center;
+ }
+ 
+ .notimg2{
+   margin-top: 5%;
+   margin-bottom: 2%;
+}
+
+
+ th{
+
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  background-color:  rgb(61, 117 ,74);
+  color: white;
+ }
+ 
+.tablecon{
+   padding: 0;
+}

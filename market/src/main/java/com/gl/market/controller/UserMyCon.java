@@ -39,7 +39,7 @@ public class UserMyCon {
 	public String juList(@RequestParam("idx")int idx ,Model model, HttpServletRequest req){
 		session = req.getSession();
 		int p=idx;
-		int row = 10;
+		int row = 5;
 		int rowTot=1;
 		int stert = (p-1)*row+1;
 		int end = stert+(row-1);
@@ -158,6 +158,19 @@ public class UserMyCon {
 		try {
 			PrintWriter out = resp.getWriter();
 			out.print(mile.getCash());
+		} catch (IOException e) {
+			System.out.println("프린트 오류");
+		}
+	}
+	
+	@RequestMapping("/gradeck")
+	public void gradeck(@RequestParam("id")String id, HttpServletResponse resp){
+		UserMypageDao mapper = sqlSession.getMapper(UserMypageDao.class);
+		UserJoinVo mile = mapper.mileCk(id); 
+		try {
+			resp.setCharacterEncoding("UTF-8");
+			PrintWriter out = resp.getWriter();
+			out.print(mile.getGrade());
 		} catch (IOException e) {
 			System.out.println("프린트 오류");
 		}

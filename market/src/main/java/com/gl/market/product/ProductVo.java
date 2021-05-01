@@ -5,6 +5,7 @@ import java.util.Date;
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Pattern;
 
+
 //import org.hibernate.validator.constraints.NotBlank;
 //import org.hibernate.validator.constraints.NotEmpty;
 //import org.hibernate.validator.constraints.Range;
@@ -43,6 +44,28 @@ public class ProductVo {
 	
 	public ProductVo() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public ProductVo(String proid, String proname, String cat, String loc,
+			int price, int minp, int maxp, String peris, String exp,
+			String img, String thumb, double discount, double point, int event,
+			String name) {
+		super();
+		this.proid = proid;
+		this.proname = proname;
+		this.cat = cat;
+		this.loc = loc;
+		this.price = price;
+		this.minp = minp;
+		this.maxp = maxp;
+		this.peris = peris;
+		this.exp = exp;
+		this.img = img;
+		this.thumb = thumb;
+		this.discount = discount;
+		this.point = point;
+		this.event = event;
+		this.name = name;
 	}
 
 	public ProductVo(String proid, String proname, String cat, String loc,

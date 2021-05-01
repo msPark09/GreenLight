@@ -8,6 +8,7 @@
   		<mapper resource="sql/MarketMapper.xml"/>
   		<mapper resource="sql/LoginMapper.xml"/>
   		<mapper resource="sql/MypageMapper.xml"/>
+  		<mapper resource="sql/NoticeMapper.xml"/>
   		<mapper resource="sql/ProductMapper.xml"/>
   	</mappers>
   </configuration>

@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+html, body{ 
+	height: 100%;     
+}
+
+
+body{
+	background: url(/market/img/wallpapebg.jpg); 
+	no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+    
+
+#logform{
+	padding: 0% 7% 0% 7%;
+	margin-bottom: 15%;
+
+}
+
+
+.logbox{
+   border-radius:5px;
+   background-color: rgba( 255, 255, 255, 0.7 );
+   padding: 5% 5% 2% 5%;
+}
+
+#logbtn{
+    border-radius:0px;
+ }
+ 
+ .cont_low{
+    margin-top: 10px;
+    text-align: right;
+ }
+ 
+
+ 

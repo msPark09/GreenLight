@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+ 
+ 
+ #notimg{
+  margin-bottom: 1%;
+  
+ }
+ 
+ th{
+  background-color: rgb(61, 117 ,74);
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+ }
+ 
+.notimg2{
+   margin-top: 5%;
+   margin-bottom: 2%;
+}
+
+.notable{
+   margin-bottom: 15%;
+}

@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+ 
+ th{
+  background-color: rgb(61, 117 ,74);
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+ }
+ 
+#evenimg{
+   margin-top: 5%;
+   margin-bottom: 2%;
+}
+
+.eventable{
+   margin-bottom: 20%;
+}

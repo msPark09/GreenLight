@@ -6,11 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>GreenLight</title>
 <link href="./css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+	@import url("/market/login/joinform.css");
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
 
 	function onlynum() {
 		if ((event.keyCode<48)||(event.keyCode>57)){
@@ -66,7 +70,7 @@
 			}
 			
 			$.ajax({
-				'url':'./joincheck?id='+$('#joinId').val(),
+				'url':'/market/joincheck?id='+$('#joinId').val(),
 				'error' : function(jqXHR, textStatus) {
 					alert("통신실패 " + textStatus + "(code): "	+ jqXHR.status);},
 				'success' : function(data) {
@@ -74,9 +78,9 @@
 					if(msg>0){
 						alert("이미 존재하는 아이디입니다.");
 					}else{
-						$('#joinform').attr('method','post');
-				        $('#joinform').attr('action','./join');
-				        $('#joinform').submit();
+						$('.joinform').attr('method','post');
+				        $('.joinform').attr('action','/market/join');
+				        $('.joinform').submit();
 					}
 					
 				}
@@ -87,39 +91,44 @@
 </script>
 </head>
 <body>
-	<div class="contents">
-	<form id="joinform">
+   <div class="head"><%@ include file = "../foothead/loghead.jsp" %></div>
+	<div class="container">
+	<div class="contents col-md-12">
+	<div class="col-md-3"></div>
+	<form class="joinform col-md-6">
 		<div class="cont_top">
-			<h2>회원가입</h2>
+			<h1>회원가입</h1>
+		    <p id="signup">SIGN UP</p>
 		</div>
 		<div class="cont_mid">
-			<div class="cont">
 				<div class="form-group">
 					<input type="text" name="id" id="joinId" class="form-control" placeholder="아이디를 입력해주세요."/>
-					<span class="joinId"></span>
+					<div class="null"><span class="joinId"></span></div>
 				</div>
 				<div class="form-group">
 					<input type="text" name="name" id="joinNic" class="form-control" placeholder="이름을 입력해주세요"/>
-					<span class="joinNic"></span>
+					<div class="null"><span class="joinNic"></span></div>
 				</div>
 				<div class="form-group">
 					<input type="password" name="pw" id="joinPw" class="form-control" placeholder="비밀번호를 입력해주세요(8~20자)"/>
-					<span class="joinPw"></span>
+					<div class="null"><span class="joinPw"></span></div>
 				</div>
 				<div class="form-group">
 					<input type="password" name="pwre" id="joinPwRe" class="form-control" placeholder="비밀번호를 한번더 확인해주세요(8~20자)"/>
-					<span class="joinPwRe"></span>
+					<div class="null"><span class="joinPwRe"></span></div>
 				</div>
 				<div class="form-group">
 					<input type="text" name="phone" id="joinPhone" class="form-control" placeholder="휴대폰 번호를 ‘–’ 없이 입력해주세요" onkeypress="onlynum();"/>
-					<span class="joinPhone"></span>
+					<div class="null"><span class="joinPhone"></span></div>
 				</div>
-			</div>
 		</div>
 		<div class="cont_low">
 			<button type="button" class="btn btn-success" id="nextbtn">다음</button>
 		</div>
-	</form>	
+	</form>
+	<div class="col-md-3"></div>	
 	</div>
+	</div>
+	<div class="foot"><%@ include file = "../foothead/logfoot.jsp"%></div>
 </body>
 </html>

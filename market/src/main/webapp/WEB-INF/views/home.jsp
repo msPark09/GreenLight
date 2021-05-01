@@ -33,27 +33,10 @@
 <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
 <script type="text/javascript">
 	$(document).ready(function() {	
-		/* $('.header').on('scroll touchmove mousewheel', function(e){
-			e.preventDefault();
-			e.stopPropagation();
-			//return false;
-			$('.header').off('scroll touchmove mousewheel');
-		}); */
-		$('#btnNav').on('click', function(){
-			window.console.log($(this).attr("aria-expanded"));
-			if($(this).attr("aria-expanded")){				
-			window.console.log($(this).attr("aria-expanded"));
-				$('.container').off('scroll touchmove mousewheel');
-			}else{
-				$(".container").on('scroll touchmove mousewheel', function(e){
-					e.preventDefault();
-					e.stopPropagation();
-					return false;
-				});
-			}
-				
-	    }); 
-		
+		$('.item').eq(0).addClass('active');
+		$('.carousel').carousel({
+			interval: 2000
+		});
 		$('.cat').on("click",function() {
 			//alert($(this).attr("href"));
 			var url = $(this).attr("href");
@@ -82,7 +65,7 @@
 			if (customid != "") {
 				if (wishtext[4] =='heartE') {
 					$.ajax({
-						'url' : "wishIn",
+						'url' : "/market/wishIn",
 						'data' : {
 							"proid" : proid,
 							"customid" : customid
@@ -99,7 +82,7 @@
 					return false;
 				} else {
 					$.ajax({
-						'url' : "wishOut",
+						'url' : "/market/wishOut",
 						'data' : {
 							"proid" : proid,
 							"customid" : customid
@@ -128,46 +111,27 @@
 </script>
 </head>
 <body class="body">
+
 	<!-- Carousel=========-->
 	<div id="myCarousel" class="carousel slide">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
+	<!-- Indicators -->
+		 <ol class="carousel-indicators">
+		 <c:forEach var="i" begin="0" end="${cnt-1 }">	
+			<li data-target="#myCarousel" data-slide-to="${i }"></li>
+		</c:forEach>
 		</ol>
 		<div class="carousel-inner">
-			<!-- foreach문으로 처리할 예정 -->
-			<div class="item active">
-				<img src="/market/img/main3.jpg">
-				<div class="container">
-					<div class="carousel-caption">
-						<h2>역사가 살아숨쉬는 곳, 경주</h2>
-						<p></p>
-					</div>
-				</div>
-			</div>
-
+			<c:forEach items="${mainImg }" var="mImg">			
 			<div class="item">
-				<img src="/market/img/main1.jpg">
+				<img src="/market/file/${mImg.IMG }">
 				<div class="container">
 					<div class="carousel-caption">
-						<h2>한겨울의 보라카이 3박 5일</h2>
+						<h2>${mImg.TITLE }</h2>
 						<p></p>
 					</div>
 				</div>
 			</div>
-
-			<div class="item">
-				<img src="/market/img/main2.jpg">
-				<div class="container">
-					<div class="carousel-caption">
-						<h2>동해를 품은 포항 호미곶</h2>
-						<p></p>
-					</div>
-				</div>
-			</div>
-
+			</c:forEach>
 		</div>
 		<!-- /.carousel-inner -->
 
@@ -182,21 +146,18 @@
 		</a>
 	</div>
 	<!-- /.carousel -->
-	<div class="header">
-		<%@ include file="header/header.jsp"%>
-	</div>
-
-
-
+	 <div class="header">
+		<%@ include file="../header/header.jsp"%>
+	</div> 
 	<div class="container">
 		<div class="col-md-12 col-xs-12 starter-template">
 			<ul class="nav nav-pills">
 				<li role="presentation" class="active"><a class="cat"
-					href="/market/total">테마여행</a></li>
-				<li role="presentation"><a class="cat" href="/market/HU">휴양지</a></li>
-				<li role="presentation"><a class="cat" href="/market/FM">가족여행</a></li>
-				<li role="presentation"><a class="cat" href="/market/FO">맛집탐방</a></li>
-				<li role="presentation"><a class="cat" href="/market/OD">당일치기</a></li>
+					href="/market/cat/total">테마여행</a></li>
+				<li role="presentation"><a class="cat" href="/market/cat/HU">휴양지</a></li>
+				<li role="presentation"><a class="cat" href="/market/cat/FM">가족여행</a></li>
+				<li role="presentation"><a class="cat" href="/market/cat/FO">맛집탐방</a></li>
+				<li role="presentation"><a class="cat" href="/market/cat/OD">당일치기</a></li>
 			</ul>
 		</div>
 
@@ -206,12 +167,12 @@
 					<div class="col-xs-12 col-md-4">
 						<div class="thumbnail">
 							<a href="detail?id=${bean.proid}"> <img
-								src="/market/img/${bean.thumb }"
+								src="/market/file/${bean.thumb }"
 								alt="${bean.thumb }">
 							</a>
 							<div class="caption">
 								<h3>${bean.proname }</h3>
-								<c:if test="${wishlist ne null}">
+								<c:if test="${!empty wishlist}">
 									<p>
 										<c:set var="cnt" value="0" />
 										<c:forEach items="${wishlist }" var="wishbean">
@@ -231,7 +192,7 @@
 												class="glyphicon glyphicon-heart heart" aria-hidden="true"></span></a>
 										</c:if>
 								</c:if>
-								<c:if test="${wishlist eq null}">
+								<c:if test="${empty wishlist}">
 									<a href="${bean.proid}" class="wish btn btn-danger"
 										role="button"> <!-- //data-toggle="modal" data-target="#myModal" -->
 										<span class="glyphicon glyphicon-heart-empty heartE "
@@ -250,7 +211,7 @@
 	</div>
 	<!-- /.container -->
 	<div class="footer">
-		<%@ include file="footer/footer.jsp"%>
+		<%@ include file="../footer/footer.jsp"%>
 	</div>
 	 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">

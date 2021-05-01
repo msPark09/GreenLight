@@ -10,6 +10,6 @@
   	SELECT * FROM CUSTOMER WHERE ID=#{value}
   	</select>
   	<insert id="userInsert" parameterType="com.gl.market.model.UserJoinVo">
-  	INSERT INTO CUSTOMER (ID,PW,NAME,PHONE,CASH,GRADE,TCASH) VALUES (#{id},#{pw},#{name},#{phone},0,NULL,0)
+  	INSERT INTO CUSTOMER (ID,PW,NAME,PHONE,CASH,GRADE,TCASH) VALUES (#{id},#{pw},#{name},#{phone},0,'흙흙모쏠',0)
   	</insert>
   </mapper>

@@ -8,6 +8,9 @@
 		cat='HU' or cat='FM' or cat='FO' or cat='OD'
 		order by prio
 	</select>
+	<select id="selectAll" resultType="com.gl.market.product.ProductVo">
+	select * from product order by prio
+	</select>
 	<select id="selectList" parameterType="String"
 		resultType="com.gl.market.product.ProductVo">
 		select * from product where cat=#{value} order by prio
@@ -21,8 +24,45 @@
 		values('wish_'||seq_wish.nextval,#{proid},#{customid})
 	</insert>
 	<delete id="deleteWish" parameterType="com.gl.market.model.UserWishVo">
-		delete from wish where proid=#{proid} and customid=#{customid}
+		delete from wish where
+		proid=#{proid} and customid=#{customid}
 	</delete>
+	<select id="mainimg" resultType="HashMap">
+		select * from mainimg
+	</select>
+	<select id="cnt" resultType="HashMap">
+		select count(*) as cnt from mainimg
+	</select>
+	<select id="selectOne" parameterType="String" resultType="com.gl.market.product.ProductVo">
+	select * from product where proid=#{value}
+	</select>
+	<select id="selectDetail" parameterType="String" resultType="com.gl.market.model.ProdetailVo">
+	select * from prodetail where proid=#{value}
+	</select>
+	<select id="orderTic" parameterType="com.gl.market.model.ProdetailVo" resultType="HashMap">
+	select sum(goperson) as sum from oder where proid=#{proid} and startday=#{startday} and trans=#{trans} 
+	</select>
+	<select id="vocList" parameterType="String" resultType="com.gl.market.model.VocVo">
+	select * from voc where proid=#{value}
+	</select>
+	<insert id="insertProVoc" parameterType="com.gl.market.model.VocVo">
+	insert into voc values(#{vocid},#{voctitle},#{voccontent},#{customid},null,#{proid})
+	</insert>
+	<select id="reviewList" parameterType="String" resultType="com.gl.market.product.ReviewVo">
+	select * from review where proid=#{value}	
+	</select>
+	<select id="selectWish" parameterType="HashMap" resultType="HashMap">
+	select count(*) as ok from wish where proid=#{proid} and customid=#{customid}	
+	</select>
+	<select id="selectBasket" parameterType="com.gl.market.model.UserBasketVo" resultType="HashMap">
+	select count(*) as basket from basket where proid=#{proid} and customid=#{customid}
+	</select>
+	<insert id="insertBasket" parameterType="com.gl.market.model.UserBasketVo">
+	insert into basket values('basket'||BASKET_SEQ.nextval,#{proid},#{customid},sysdate)
+	</insert>
+	<update id="updateBasket" parameterType="com.gl.market.model.UserBasketVo">
+	update basket set payd=sysdate where proid=#{proid} and customid=#{customid}
+	</update>
 
 
 </mapper>

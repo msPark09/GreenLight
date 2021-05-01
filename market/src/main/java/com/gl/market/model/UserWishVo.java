@@ -14,16 +14,8 @@ public class UserWishVo {
 	public UserWishVo() {
 		// TODO Auto-generated constructor stub
 	}
+
 	
-
-	public UserWishVo(String wishid, String proid, String customid) {
-		super();
-		this.wishid = wishid;
-		this.proid = proid;
-		this.customid = customid;
-	}
-
-
 	public UserWishVo(String wishid, String proid, String customid,
 			String proname, int price, String thumb) {
 		super();
@@ -34,6 +26,13 @@ public class UserWishVo {
 		this.price = price;
 		this.thumb = thumb;
 	}
+
+	public UserWishVo(String proid, String customid) {
+		super();
+		this.proid = proid;
+		this.customid = customid;
+	}
+
 
 	public String getwishid() {
 		return wishid;

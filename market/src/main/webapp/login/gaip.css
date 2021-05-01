@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+
+
+.container{ 
+	height: 100%;
+    margin-bottom: 20%;         
+}
+
+
+body{
+	background: url(/market/img/wallpapebg.jpg); 
+	no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.agreebox .inner {
+	overflow-y:scroll;
+	padding:10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	height: 100px;
+}
+	
+.cont_top{
+	height: auto;
+	color: rgba(106, 188, 100, 1);
+	line-height: 100%;
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+#signup{
+	color:gray;
+	padding: 0;
+	font-size: 17px;
+	margin: 0;
+}
+
+.cont_mid{
+   margin: 10px auto;
+   background-color: rgba( 255, 255, 255, 0.7 );
+   padding: 30px 40px 20px 40px;
+   border-radius:5px;
+}
+
+
+.cont_low{
+	margin: 10px auto;
+	text-align: right;
+}
+
+#nextbtn{
+	display: inline-block;
+}
+
+
+
