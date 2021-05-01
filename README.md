@@ -28,7 +28,7 @@
 
 #### :blush: check Doc
  > ![mainDoc](./doc/3차프로젝트ppt.gif)  
- > [download](./doc/3차프로젝트ppt.ppt)  
+ > [download](./doc/3차프로젝트ppt.pptx)  
 
 [유스케이스](./doc/마켓페이지유스케이스.pdf)  
 [ERD](./doc/ERD.pdf)  
