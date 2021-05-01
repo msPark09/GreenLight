@@ -15,7 +15,7 @@
 ***
 
 #### :chart_with_upwards_trend: schedule
- > ![schedule](./doc/일정.jpg)  
+ > ![schedule](https://github.com/msPark09/GreenLight_master/blob/master/doc/%EC%9D%BC%EC%A0%95.jpg)  
 
 
 ***
